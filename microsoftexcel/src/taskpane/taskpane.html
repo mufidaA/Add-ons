@@ -1,0 +1,72 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso Task Pane Add-in</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"/>
+
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="ms-font-m ms-welcome ms-Fabric">
+    <header class="ms-welcome__header ms-bgColor-neutralLighter">
+        <img width="180" height="180" src="../../assets/imgpsh_fullsize_anim (1).png" alt="Contoso" title="Contoso" />
+        <p class="ms-font-su"></p>
+    </header>
+    <section id="sideload-msg" class="ms-welcome__main">
+        <h2 class="ms-font-xl">Please <a target="_blank" href="https://learn.microsoft.com/office/dev/add-ins/testing/test-debug-office-add-ins#sideload-an-office-add-in-for-testing">sideload</a> your add-in to see app body.</h2>
+    </section>
+    <main id="app-body" class="ms-welcome__main" style="display: none;">
+        <div class="form-container">
+            <div id="api">
+                <label for="api-key">API Key:</label>
+                <input type="text" id="mp-auth" placeholder="Enter your API Key">
+                <span id="error-key"></span>
+            </div>
+            <div id="user">
+                <label for="username">Username:</label>
+                <input type="text" id="mp-username" placeholder="Enter your   user email">
+                <span id="error-username"></span>
+            </div>
+            <div>
+                <button class="ms-Button" id="create-table">Import</button>
+                <span id="log"></span>
+            </div>
+        </div>
+        <p class="ms-font-xl"> Enter your  Data Connect key to securely access and retrieve your data.</p>
+        <ul class="ms-List ms-welcome__features">
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--DownloadDocument ms-font-xl"></i>
+                <span class="ms-font-m">Import your data into your sheets,to organize, analyze, and manipulate your financial information</span>
+            </li>
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--BarChartHorizontal ms-font-xl"></i>
+                <span class="ms-font-m"> Take control of your information and customize it to suit your needs effortlessly.</span>
+            </li>
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--AnalyticsReport ms-font-xl"></i>
+                <span class="ms-font-m">Visualize trends, make informed choices, and strategize effectively </span>
+            </li>
+        </ul>
+        <p class="ms-font-l">Request your API key now <b><a href="https://app..com" target="_blank">Here</a></b>.</p>
+        <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
+            <a href="https://www..com/privacy-policy/" class="ms-Button-label">Privacy Policy</a>
+            <a href="https://www..com/terms-of-use/" class="ms-Button-label">Terms of Use</a>
+        </div>
+    </main>
+
+</body>
+
+</html>

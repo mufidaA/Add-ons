@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <style>
+    select {
+      font-family: 'Open Sans', sans-serif; 
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+    .data-item {
+      font-family: 'Open Sans', sans-serif; 
+      margin-bottom: 10px;
+    }
+    .insert-button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-family: 'Open Sans', sans-serif; 
+    }
+    .insert-arrow {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<body>
+  <select id="selectOption" onchange="displayData()">
+    <option value="0">Parent</option>
+    <option value="1">Asset</option>
+    <option value="2">Pole</option>
+    <option value="3">Adjustment</option>
+    <option value="4">Buffer</option>
+    <option value="5">Cross-arm</option>
+    <option value="6">Attachment point</option>
+    <option value="7">Mid-span</option>
+    <option value="8">NSS</option>
+
+  </select>
+  <div id="dataDisplay"></div>
+
+  <script>
+    var data = <?!= JSON.stringify(data) ?>;
+
+    function displayData() {
+      var selectedOption = document.getElementById('selectOption').value;
+      var dataDisplay = document.getElementById('dataDisplay');
+      dataDisplay.innerHTML = '';
+
+      for (var i = 1; i < data.length; i++) {
+        var dataItem = data[i][selectedOption];
+        if (dataItem.trim() !== '') {
+          dataDisplay.innerHTML += '<p class="data-item">' + dataItem + '<button class="insert-button" onclick="insertData(\'' + dataItem + '\')">&#8592;</button></p>';
+
+        }
+      }
+    }
+
+    function insertData(dataItem) {
+      google.script.run.insertDataToDoc(dataItem); // Call a server-side function to insert the data
+    }
+
+   
+    window.onload = displayData;
+  </script>
+</body>
+</html>
