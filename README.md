@@ -4,6 +4,7 @@ RealLife Add-ins project: These add-ins have been developed for real-life use an
 ## Banking Data Add-ins
 ### Google Add-on and Microsoft Add-in
 Both are designed to allow users to interact with their financial information (retrieve and manipulate their banking data in their working Sheets) using their API key and username.
+
 ![Screenshot 1](microsoftexcel/assets/addin-porfolio.png)
 
 ### Features:
